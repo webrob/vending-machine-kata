@@ -7,5 +7,5 @@ public enum ProductType
 {
     COLA_CAN,
     CHOCOLATE_BAR,
-    MINERAL_WATER_BOTTLE;
+    MINERAL_WATER_BOTTLE
 }
