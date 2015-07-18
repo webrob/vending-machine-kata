@@ -16,7 +16,7 @@ public class Display
 	showInitText();
     }
 
-    private void showInitText()
+    public void showInitText()
     {
 	text = INIT_TEXT;
     }
