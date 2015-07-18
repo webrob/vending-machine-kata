@@ -8,7 +8,8 @@ import lombok.Setter;
  */
 public class Display
 {
-    public static String INIT_TEXT = "SELECT SLOT";
+    public static final String INIT_TEXT = "SELECT SLOT";
+    public static final String CHANGE_NOT_AVAILABLE_TEXT = "CHANGE NOT AVAILABLE";
     @Getter @Setter private String text;
 
     public Display()
@@ -19,5 +20,10 @@ public class Display
     public void showInitText()
     {
 	text = INIT_TEXT;
+    }
+
+    public void setChangeNotAvailableText()
+    {
+	text = CHANGE_NOT_AVAILABLE_TEXT;
     }
 }

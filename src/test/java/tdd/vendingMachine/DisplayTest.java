@@ -21,4 +21,32 @@ public class DisplayTest
 	//then
 	assertThat(text).isEqualTo(Display.INIT_TEXT);
     }
+
+    @Test
+    public void shouldDisplayInitText()
+    {
+	//given
+	Display display = new Display();
+
+	//when
+	display.showInitText();
+	String text = display.getText();
+
+	//then
+	assertThat(text).isEqualTo(Display.INIT_TEXT);
+    }
+
+    @Test
+    public void shouldDisplayChangeNotAvailableText()
+    {
+	//given
+	Display display = new Display();
+
+	//when
+	display.setChangeNotAvailableText();
+	String text = display.getText();
+
+	//then
+	assertThat(text).isEqualTo(Display.CHANGE_NOT_AVAILABLE_TEXT);
+    }
 }
