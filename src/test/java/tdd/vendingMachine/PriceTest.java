@@ -34,4 +34,32 @@ public class PriceTest
 	//then
 	assertThat(priceWithCurrency).isEqualTo("2,5 zł");
     }
+
+    @Test
+    public void shouldAddTwoPrices()
+    {
+	//given
+	Price price1 = new Price(200);
+	Price price2 = new Price(100);
+
+	//when
+	Price sum = price1.add(price2);
+
+	//then
+	assertThat(sum).isEqualTo(new Price(300));
+    }
+
+    @Test
+    public void shouldSubtractTwoPrices()
+    {
+	//given
+	Price price1 = new Price(200);
+	Price price2 = new Price(100);
+
+	//when
+	Price sum = price1.subtract(price2);
+
+	//then
+	assertThat(sum).isEqualTo(new Price(100));
+    }
 }
