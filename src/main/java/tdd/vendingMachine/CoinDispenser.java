@@ -144,24 +144,29 @@ public class CoinDispenser
 	{
 	    if (canReturnThisCoin(coin))
 	    {
-		int decrementedAmountOfCoins = getDecrementedAmountOfCoins(coin);
-		allCoins.put(coin, decrementedAmountOfCoins);
-		changeToPrepare = changeToPrepare.subtract(coin.getPrice());
-		change.add(coin);
+		prepareThisCoinToReturn(coin);
 		foundAtLeastOneCoinToReturn = true;
 	    }
 	}
 	return foundAtLeastOneCoinToReturn;
     }
 
-    private boolean canReturnThisCoin(Coin coin)
+    private void prepareThisCoinToReturn(Coin coin)
     {
-	return changeToPrepare.compareTo(coin.getPrice()) >= 0 && allCoins.get(coin) > 0;
+	int decrementedAmountOfCoins = getDecrementedAmountOfCoins(coin);
+	allCoins.put(coin, decrementedAmountOfCoins);
+	changeToPrepare = changeToPrepare.subtract(coin.getPrice());
+	change.add(coin);
     }
 
     private int getDecrementedAmountOfCoins(Coin coin)
     {
 	return allCoins.get(coin) - 1;
+    }
+
+    private boolean canReturnThisCoin(Coin coin)
+    {
+	return changeToPrepare.compareTo(coin.getPrice()) >= 0 && allCoins.get(coin) > 0;
     }
 
     private void clearInsertedCoins()
